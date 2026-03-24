@@ -19,10 +19,19 @@ git branch: 'main',
         sh "docker ps -a"
       }
     }
-        stage('Test') {
+        stage('Docker-Build') {
             steps {
-                echo "Test step here..."
+                echo "Docker-Build step here..."
+                sh "docker build . -t pythonapp:v1"
             }
         }
+
+        stage('DockerContainer Creation') {
+            steps {
+                echo "Running Docker compose here..."
+                sh "docker compose up -d"
+            }
+        }
+
     }
 }
