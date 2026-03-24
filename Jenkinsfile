@@ -39,6 +39,13 @@ git branch: 'main',
                 sh "docker build . -t pythonapp:v1"
             }
         }
-
+         stage('Image push') {
+            steps {
+                echo "Docker-Build step here..."
+                sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 985539761450.dkr.ecr.us-east-1.amazonaws.com"
+                sh "docker tag pythonapp:latest 985539761450.dkr.ecr.us-east-1.amazonaws.com/pythonapp:latest"
+                sh "docker push 985539761450.dkr.ecr.us-east-1.amazonaws.com/pythonapp:latest"
+        }
+         }
     }
 }
