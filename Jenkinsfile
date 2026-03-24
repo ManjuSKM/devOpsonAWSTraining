@@ -33,5 +33,12 @@ git branch: 'main',
             }
         }
 
+        stage('Docker-Build') {
+            steps {
+                echo "Docker-Build step here..."
+                sh "docker build . -t pythonapp:v1"
+            }
+        }
+
     }
 }
