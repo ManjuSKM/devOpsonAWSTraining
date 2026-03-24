@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'docker' }
+    agent { labels 'docker' }
     triggers {
         pollSCM('H/2 * * * *')   // every 2 minutes
     }
