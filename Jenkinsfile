@@ -54,9 +54,9 @@ pipeline {
         }
         stage('Image push') {
             steps {
-               sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 640168426521.dkr.ecr.us-east-1.amazonaws.com"
-               sh "docker tag pythonapp:v1 640168426521.dkr.ecr.us-east-1.amazonaws.com/pythonapp:v1"
-                sh "docker push 640168426521.dkr.ecr.us-east-1.amazonaws.com/pythonapp:v1"
+               sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 985539761450.dkr.ecr.us-east-1.amazonaws.com"
+               sh "docker tag pythonapp:v1 985539761450.dkr.ecr.us-east-1.amazonaws.com/pythonapp:v1"
+                sh "docker push 985539761450.dkr.ecr.us-east-1.amazonaws.com/pythonapp:v1"
             }
         }
     }
