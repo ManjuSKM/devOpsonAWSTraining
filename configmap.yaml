@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: py-config
 data:
-  REDIS_HOST: "redis-service"
+  REDIS_HOST: "redis-service-cm"
   APP_PORT: "8000"
