@@ -65,4 +65,27 @@ pipeline {
     //             publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, icon: '', keepAll: true, reportDir: '/usr/share/nginx/html', reportFiles: 'index.html', reportName: 'My Run Report', reportTitles: 'Nginx', useWrapperFileDirectly: true])
     //         }
     //     }
+
+     stage('Check kube env') {
+            steps {
+                sh """
+                minikube status
+                kubectl get nodes
+                """
+            }
+        }
+        stage('deploy kube files') {
+            steps {
+                sh """
+                kubectl apply -f py-redis-configmap
+                """
+            }
+        }
+
+        stage('App testing on kube env') {
+            steps {
+               sh "curl 192.168.49.2:30115"
+            }
+        }
+
 }
