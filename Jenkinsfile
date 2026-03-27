@@ -8,7 +8,7 @@ pipeline {
     environment {
         IMAGE_NAME   = 'pythonapp:v1'
         ECR_REGISTRY = '820242921378.dkr.ecr.us-east-1.amazonaws.com'
-        ECR_REPO     = '820242921378.dkr.ecr.us-east-1.amazonaws.com/pythonapp:v1'
+        ECR_REPO     = '820242921378.dkkr.ecr.us-east-1.amazonaws.com/pythonapp:v1'
         AWS_REGION   = 'us-east-1'
     }
  
@@ -101,20 +101,20 @@ pipeline {
                     pwd
                     echo "Workspace files:"
                     ls -la
-                    echo "k8s folder contents:"
-                    ls -la k8s
+                    echo "folder contents:"
+                    ls -la
  
-                    test -f k8s/configmap.yaml
-                    test -f k8s/redis-deploy.yaml
-                    test -f k8s/redis-service.yaml
-                    test -f k8s/py-deploy.yaml
-                    test -f k8s/py-service.yaml
+                    test -f configmap.yaml
+                    test -f redis-deploy.yaml
+                    test -f redis-service.yaml
+                    test -f py-deploy.yaml
+                    test -f py-service.yaml
  
-                    kubectl apply -f k8s/configmap.yaml
-                    kubectl apply -f k8s/redis-deploy.yaml
-                    kubectl apply -f k8s/redis-service.yaml
-                    kubectl apply -f k8s/py-deploy.yaml
-                    kubectl apply -f k8s/py-service.yaml
+                    kubectl apply -f configmap.yaml
+                    kubectl apply -f redis-deploy.yaml
+                    kubectl apply -f redis-service.yaml
+                    kubectl apply -f py-deploy.yaml
+                    kubectl apply -f py-service.yaml
                 '''
             }
         }
