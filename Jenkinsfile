@@ -59,12 +59,6 @@ pipeline {
                 sh "docker push 985539761450.dkr.ecr.us-east-1.amazonaws.com/pythonapp:v1"
             }
         }
-    }
-    // post {
-    //         success {
-    //             publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, icon: '', keepAll: true, reportDir: '/usr/share/nginx/html', reportFiles: 'index.html', reportName: 'My Run Report', reportTitles: 'Nginx', useWrapperFileDirectly: true])
-    //         }
-    //     }
 
      stage('Check kube env') {
             steps {
@@ -87,5 +81,5 @@ pipeline {
                sh "curl 192.168.49.2:30115"
             }
         }
-
+    }
 }
